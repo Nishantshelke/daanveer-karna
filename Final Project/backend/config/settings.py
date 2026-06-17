@@ -15,8 +15,14 @@ default_db_dir.mkdir(parents=True, exist_ok=True)
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "development-only-change-me")
 DEBUG = os.getenv("DJANGO_DEBUG", "True").lower() == "true"
 ALLOWED_HOSTS = ["*"]
-CSRF_TRUSTED_ORIGINS = [x.strip() for x in os.getenv("CSRF_TRUSTED_ORIGINS", "http://localhost:5173").split(",") if x.strip()]
-CORS_ALLOWED_ORIGINS = [x.strip() for x in os.getenv("CORS_ALLOWED_ORIGINS", "http://localhost:5173").split(",") if x.strip()]
+CSRF_TRUSTED_ORIGINS = [
+"http://localhost:5173",
+"https://daanveer-karna.vercel.app",
+]
+CORS_ALLOWED_ORIGINS = [
+"http://localhost:5173",
+"https://daanveer-karna.vercel.app",
+]
 CORS_ALLOW_CREDENTIALS = True
 SITE_URL = os.getenv("SITE_URL", "http://localhost:5173").rstrip("/")
 
